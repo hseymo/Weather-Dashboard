@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Weather Dashboard</title>
+    <link rel="stylesheet" href="http://code.jquery.com/ui/1.13.1/themes/base/jquery-ui.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="./assets/css/style.css">
+</head>
+<body>
+    <header class="container-fluid text-light bg-primary mb-5 p-3">
+        <div class="d-flex align-items-center justify-content-center">
+          <h1>Weather Dashboard</h1>
+        </div>
+      </header>
+    <section class="container">
+        <section class="row">
+            <aside class="col-12 col-md-4 col-xl-3" id="searchaside">
+                <div id="tophalf" class="">
+                    <h2>Search for a City:</h2>
+                    <input class="col-12 mb-3" type="text" id="searchbox" placeholder="Type City Name Here">
+                    <input class="col-12 mb-3 bg-primary text-white" type="submit" id="search" value="Search">
+                </div>
+                <div id="bottomhalf">
+                    <button class="col-12 mb-3" id="Austin">Austin</button>
+                    <button class="col-12 mb-3" id="Chicago">Chicago</button>
+                    <button class="col-12 mb-3" id="NewYork">New York</button>
+                    <button class="col-12 mb-3" id="Orlando">Orlando</button>
+                    <button class="col-12 mb-3" id="SanFran">San Francisco</button>
+                    <button class="col-12 mb-3" id="Seattle">Seattle</button>
+                    <button class="col-12 mb-3" id="Denver">Denver</button>
+                    <button class="col-12 mb-3" id="Atlanta">Atlanta</button>
+                </div>
+            </aside>
+            <main class="col-12 col-md-8 col-xl-9">
+                <section class="container">
+                    <section class="row">
+                        <section id="weatherToday" class="card col-12 bg-white border pb-3">
+                            <h2>Enter a City to Search...</h2>
+                            <p class="card-text">Temp:</p>
+                            <p class="card-text">Wind:</p>
+                            <p class="card-text">Humidity:</p>
+                            <p class="card-text">UV Index:</p>
+                        </section>
+                    </section>
+                    <section id="fiveday">
+                        <div class="row">
+                            <h3 class="my-3 mx-2">5 Day Forecast:</h3>
+                        </div>
+                        <div class="row justify-content-around">
+                            <div class="col-md-2">
+                                <div class="card">
+                                    <div class="card-body">
+                                        <h5 class="card-title">Date</h5>
+                                        <p class="card-text">Emoji</p>
+                                        <p class="card-text">Temp</p>
+                                        <p class="card-text">Wind</p>
+                                        <p class="card-text">Humidity</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-2">
+                                <div class="card">
+                                    <div class="card-body">
+                                        <h5 class="card-title">Date</h5>
+                                        <p class="card-text">Emoji</p>
+                                        <p class="card-text">Temp</p>
+                                        <p class="card-text">Wind</p>
+                                        <p class="card-text">Humidity</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-2">
+                                <div class="card">
+                                    <div class="card-body">
+                                        <h5 class="card-title">Date</h5>
+                                        <p class="card-text">Emoji</p>
+                                        <p class="card-text">Temp</p>
+                                        <p class="card-text">Wind</p>
+                                        <p class="card-text">Humidity</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-2">
+                                <div class="card">
+                                    <div class="card-body">
+                                        <h5 class="card-title">Date</h5>
+                                        <p class="card-text">Emoji</p>
+                                        <p class="card-text">Temp</p>
+                                        <p class="card-text">Wind</p>
+                                        <p class="card-text">Humidity</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-2">
+                                <div class="card">
+                                    <div class="card-body">
+                                        <h5 class="card-title">Date</h5>
+                                        <p class="card-text">Emoji</p>
+                                        <p class="card-text">Temp</p>
+                                        <p class="card-text">Wind</p>
+                                        <p class="card-text">Humidity</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+                </section>
+            </main>
+        </section>
+    </section>
+
+    <!-- scripts -->
+    <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
+    <script src="https://code.jquery.com/ui/1.13.1/jquery-ui.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.0/js/bootstrap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.27.0/moment.min.js"></script>
+    <script src="./assets/js/script.js"></script>
+</body>
+</html>
