@@ -3,5 +3,13 @@ p {
 }
 
 header {
-    background-color: linear-gradient(#254FA8, 25%, #26388A, 50%, #261F6C, 75%)
+    background-image: linear-gradient(to right, #2959c1, #261F6C)
+}
+
+#tophalf {
+    border-bottom: 3px solid black;
+}
+
+#search {
+    background-color: #2E9AED;
 }

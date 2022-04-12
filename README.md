@@ -18,7 +18,7 @@ When searched, the city is added to the search history in local storage and a bu
 Please check out this project by clicking [here](https://hseymo.github.io/Weather-Dashboard/). 
 
 APPLICATION SCREENSHOTS: <br>
-![Screenshot](URL)
+![Screenshot](./assets/photos/Screenshot.png)
 
 Acknowledgments: Thank you to the University of Washington Web Development Bootcamp for teaching me the skills to create this weather dashboard.
 

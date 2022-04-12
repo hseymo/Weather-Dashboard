@@ -12,7 +12,8 @@ function getLocalStorage() {
         for (let i = storedArray.length-1; i >= 0; i--) {
             let currentEl = storedArray[i];
             var button = $('<button>');
-            button.addClass("col-12 mb-3");
+            button.addClass("col-12 mb-3 border-0 rounded p-1");
+            button.css('background', '#ADAEAE');
             button.attr('id', currentEl);
             button.text(currentEl);
             buttonList.append(button);
@@ -70,6 +71,7 @@ $('#search').on("click", function (event) {
 
                             var todaysWeather = $('#weatherToday')
                             todaysWeather.children().eq(0).text(city + ' ' + date + ' ');
+                            todaysWeather.children().eq(0).css('font-weight', 'bold');
                             todaysWeather.children().eq(1).text('Temp: ' + currentTemp);
                             todaysWeather.children().eq(2).text('Wind: ' + currentWind);
                             todaysWeather.children().eq(3).text('Humidity: ' + currentHumidity);
@@ -109,9 +111,11 @@ $('#search').on("click", function (event) {
                                 console.log(forecastedDate, forecastedTemp, forecastedWind, forecastedHumidity, forecastedIcon)
 
                                 var forecastCard = $('<div>');
-                                forecastCard.addClass("card col-md-2 bg-primary text-white p-3");
+                                forecastCard.addClass("card col-md-2 text-white p-3");
+                                forecastCard.css('background-image', 'linear-gradient(to right, #2959c1, #261F6C)');
                                 var forecastDate = $('<h5>');
                                 forecastDate.text(forecastedDate);
+                                forecastDate.css('font-weight', 'bold');
                                 var forecastTemp = $('<p>');
                                 forecastTemp.text('Temp: ' + forecastedTemp);
                                 var forecastWind = $('<p>');
@@ -136,7 +140,8 @@ $('#search').on("click", function (event) {
                             setLocalStorage();
                             
                             var button = $('<button>');
-                            button.addClass("col-12 mb-3");
+                            button.addClass("col-12 mb-3 border-0 rounded p-1");
+                            button.css('background', '#ADAEAE');
                             button.attr('id', city);
                             button.text(city);
                             buttonList.prepend(button);
@@ -199,6 +204,7 @@ buttonList.on("click", function (event) {
 
                             var todaysWeather = $('#weatherToday')
                             todaysWeather.children().eq(0).text(city + ' ' + date + ' ');
+                            todaysWeather.children().eq(0).css('font-weight', 'bold');
                             todaysWeather.children().eq(1).text('Temp: ' + currentTemp);
                             todaysWeather.children().eq(2).text('Wind: ' + currentWind);
                             todaysWeather.children().eq(3).text('Humidity: ' + currentHumidity);
@@ -238,9 +244,11 @@ buttonList.on("click", function (event) {
                                 console.log(forecastedDate, forecastedTemp, forecastedWind, forecastedHumidity, forecastedIcon)
 
                                 var forecastCard = $('<div>');
-                                forecastCard.addClass("card col-md-2 bg-primary text-white p-3");
+                                forecastCard.addClass("card col-md-2 text-white p-3");
+                                forecastCard.css('background-image', 'linear-gradient(to right, #2959c1, #261F6C)');
                                 var forecastDate = $('<h5>');
                                 forecastDate.text(forecastedDate);
+                                forecastDate.css('font-weight', 'bold');
                                 var forecastTemp = $('<p>');
                                 forecastTemp.text('Temp: ' + forecastedTemp);
                                 var forecastWind = $('<p>');
