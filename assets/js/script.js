@@ -23,7 +23,8 @@ getLocalStorage();
 
 $('#search').on("click", function (event) {
     event.preventDefault();
-    city = $('#searchbox').val();
+    city = $('#searchbox').val().trim();
+    city=city.charAt(0).toUpperCase() + city.slice(1);
     function fetchLatLon() {
         var requestURL = "http://api.openweathermap.org/data/2.5/weather?q=" + city + "&units=imperial&appid=b7940b8b9a395337b92ee1766b299171";
     
@@ -73,13 +74,19 @@ $('#search').on("click", function (event) {
                             todaysWeather.children().eq(2).text('Wind: ' + currentWind);
                             todaysWeather.children().eq(3).text('Humidity: ' + currentHumidity);
 
-                            var UVgreen = $('<span>');
-                            UVgreen.css("background", "green");
-                            UVgreen.css("color", "white");
-                            UVgreen.addClass("p-1");
-                            UVgreen.text(currentUVI);
+                            var UVbox = $('<span>');
+                            if (currentUVI < 3) {
+                                UVbox.css("background", "green");
+                            } else if (3 <= currentUVI < 8) {
+                                UVbox.css("background", "yellow");
+                            } else {
+                                UVbox.css("background", "red");
+                            }
+                            UVbox.css("color", "white");
+                            UVbox.addClass("p-1");
+                            UVbox.text(currentUVI);
                             todaysWeather.children().eq(4).text('UV Index: ');
-                            todaysWeather.children().eq(4).append(UVgreen);
+                            todaysWeather.children().eq(4).append(UVbox);
                             todaysWeather.children().eq(0).append(spanIcon);
 
                             // 5 DAY FORECAST
@@ -118,28 +125,28 @@ $('#search').on("click", function (event) {
                                 forecastCard.append(forecastHumidity);
                                 forecastCardDiv.append(forecastCard);
                             }
+                            function setLocalStorage() {
+                                var storedPlaces = JSON.parse(localStorage.getItem("places"));
+                                if (storedPlaces !== null) {
+                                    storedArray = storedPlaces;
+                                }
+                                storedArray.push(city);
+                                localStorage.setItem("places", JSON.stringify(storedArray));
+                            }
+                            setLocalStorage();
+                            
+                            var button = $('<button>');
+                            button.addClass("col-12 mb-3");
+                            button.attr('id', city);
+                            button.text(city);
+                            buttonList.prepend(button);
                         })
                 }
                 fetchForecast();
-                setLocalStorage();
             })
     }
     fetchLatLon();
-
-    function setLocalStorage() {
-        var storedPlaces = JSON.parse(localStorage.getItem("places"));
-        if (storedPlaces !== null) {
-            storedArray = storedPlaces;
-        }
-        storedArray.push(city);
-        localStorage.setItem("places", JSON.stringify(storedArray));
-    }
-    
-    var button = $('<button>');
-    button.addClass("col-12 mb-3");
-    button.attr('id', city);
-    button.text(city);
-    buttonList.prepend(button);
+    $('#searchbox').val('');    
 })
 
 
@@ -148,7 +155,7 @@ buttonList.on("click", function (event) {
     var buttonID = event.target.id;
     city = buttonID; 
     function fetchLatLon() {
-        var requestURL = "http://api.openweathermap.org/data/2.5/weather?q=" + city + "&units=imperial&appid=b7940b8b9a395337b92ee1766b299171";
+        var requestURL = "https://api.openweathermap.org/data/2.5/weather?q=" + city + "&units=imperial&appid=b7940b8b9a395337b92ee1766b299171";
     
         fetch(requestURL)
             .then(function (response) {
@@ -166,7 +173,7 @@ buttonList.on("click", function (event) {
 
                 function fetchForecast() {
 
-                    var forecastRequest = "http://api.openweathermap.org/data/2.5/onecall?lat=" + latitude + "&lon=" + longitude + "&exclude=minutely,hourly,alerts&units=imperial&appid=" + APIKey;
+                    var forecastRequest = "https://api.openweathermap.org/data/2.5/onecall?lat=" + latitude + "&lon=" + longitude + "&exclude=minutely,hourly,alerts&units=imperial&appid=" + APIKey;
                 
                     fetch(forecastRequest)
                         .then(function (response) {
@@ -183,7 +190,7 @@ buttonList.on("click", function (event) {
                             var currentUVI = data.current.uvi;
                             var iconCode = data.current.weather[0].icon;
 
-                            var iconURL = 'http://openweathermap.org/img/wn/' + iconCode + '@2x.png';
+                            var iconURL = 'https://openweathermap.org/img/wn/' + iconCode + '@2x.png';
                             
                             var icon = $(`<img id="icon" alt="weather icon">`);
                             icon.attr('src', iconURL);
@@ -196,13 +203,19 @@ buttonList.on("click", function (event) {
                             todaysWeather.children().eq(2).text('Wind: ' + currentWind);
                             todaysWeather.children().eq(3).text('Humidity: ' + currentHumidity);
 
-                            var UVgreen = $('<span>');
-                            UVgreen.css("background", "green");
-                            UVgreen.css("color", "white");
-                            UVgreen.addClass("p-1");
-                            UVgreen.text(currentUVI);
+                            var UVbox = $('<span>');
+                            if (currentUVI < 3) {
+                                UVbox.css("background", "green");
+                            } else if (3 <= currentUVI < 8) {
+                                UVbox.css("background", "yellow");
+                            } else {
+                                UVbox.css("background", "red");
+                            }
+                            UVbox.css("color", "white");
+                            UVbox.addClass("p-1");
+                            UVbox.text(currentUVI);
                             todaysWeather.children().eq(4).text('UV Index: ');
-                            todaysWeather.children().eq(4).append(UVgreen);
+                            todaysWeather.children().eq(4).append(UVbox);
                             todaysWeather.children().eq(0).append(spanIcon);
 
                             // 5 DAY FORECAST
@@ -217,7 +230,7 @@ buttonList.on("click", function (event) {
                                 var forecastedHumidity = currentDay.humidity + " %";
                                 var forecastedIcon = currentDay.weather[0].icon;
 
-                                var forecastIconURL = 'http://openweathermap.org/img/wn/' + forecastedIcon + '@2x.png';
+                                var forecastIconURL = 'https://openweathermap.org/img/wn/' + forecastedIcon + '@2x.png';
 
                                 var iconEl = $(`<img id="icon" alt="weather icon">`);
                                 iconEl.attr('src', forecastIconURL);
