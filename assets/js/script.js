@@ -9,7 +9,7 @@ function getLocalStorage() {
     var downloadedPlaces = JSON.parse(localStorage.getItem("places"));
     if (downloadedPlaces !== null) {
         storedArray = downloadedPlaces;
-        for (let i = 0; i < storedArray.length; i++) {
+        for (let i = storedArray.length-1; i >= 0; i--) {
             let currentEl = storedArray[i];
             var button = $('<button>');
             button.addClass("col-12 mb-3");
