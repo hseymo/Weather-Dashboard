@@ -26,7 +26,7 @@ $('#search').on("click", function (event) {
     city = $('#searchbox').val().trim();
     city=city.charAt(0).toUpperCase() + city.slice(1);
     function fetchLatLon() {
-        var requestURL = "http://api.openweathermap.org/data/2.5/weather?q=" + city + "&units=imperial&appid=b7940b8b9a395337b92ee1766b299171";
+        var requestURL = "https://api.openweathermap.org/data/2.5/weather?q=" + city + "&units=imperial&appid=b7940b8b9a395337b92ee1766b299171";
     
         fetch(requestURL)
             .then(function (response) {
@@ -44,7 +44,7 @@ $('#search').on("click", function (event) {
 
                 function fetchForecast() {
 
-                    var forecastRequest = "http://api.openweathermap.org/data/2.5/onecall?lat=" + latitude + "&lon=" + longitude + "&exclude=minutely,hourly,alerts&units=imperial&appid=" + APIKey;
+                    var forecastRequest = "https://api.openweathermap.org/data/2.5/onecall?lat=" + latitude + "&lon=" + longitude + "&exclude=minutely,hourly,alerts&units=imperial&appid=" + APIKey;
                 
                     fetch(forecastRequest)
                         .then(function (response) {
@@ -61,7 +61,7 @@ $('#search').on("click", function (event) {
                             var currentUVI = data.current.uvi;
                             var iconCode = data.current.weather[0].icon;
 
-                            var iconURL = 'http://openweathermap.org/img/wn/' + iconCode + '@2x.png';
+                            var iconURL = 'https://openweathermap.org/img/wn/' + iconCode + '@2x.png';
                             
                             var icon = $(`<img id="icon" alt="weather icon">`);
                             icon.attr('src', iconURL);
@@ -101,7 +101,7 @@ $('#search').on("click", function (event) {
                                 var forecastedHumidity = currentDay.humidity + " %";
                                 var forecastedIcon = currentDay.weather[0].icon;
 
-                                var forecastIconURL = 'http://openweathermap.org/img/wn/' + forecastedIcon + '@2x.png';
+                                var forecastIconURL = 'https://openweathermap.org/img/wn/' + forecastedIcon + '@2x.png';
 
                                 var iconEl = $(`<img id="icon" alt="weather icon">`);
                                 iconEl.attr('src', forecastIconURL);
