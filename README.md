@@ -18,8 +18,14 @@ When searched, the city is added to the search history in local storage and a bu
 Please check out this project by clicking [here](https://hseymo.github.io/Weather-Dashboard/). 
 
 APPLICATION SCREENSHOTS: <br>
+Search results: <br>
 ![Screenshot](./assets/photos/Screenshot.png)
 
+<br>
+Error message if city is not valid: <br>
+![Screenshot](./assets/photos/error.png)
+
+<br>
 Acknowledgments: Thank you to the University of Washington Web Development Bootcamp for teaching me the skills to create this weather dashboard.
 
 QUESTIONS: If you have questions, please contact me on Github at [hseymo](https://githup.com/hseymo) or by [email](mailto:fake@gmail.com).
