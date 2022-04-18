@@ -27,4 +27,4 @@ Error Alert: <br>
 <br>
 Acknowledgments: Thank you to the University of Washington Web Development Bootcamp for teaching me the skills to create this weather dashboard.
 
-QUESTIONS: If you have questions, please contact me on Github at [hseymo](https://githup.com/hseymo) or by [email](mailto:fake@gmail.com).
+QUESTIONS: If you have questions, please contact me on Github at [hseymo](https://githup.com/hseymo) or by [email](mailto:haleycseymour@comcast.net).
