@@ -276,8 +276,10 @@ function postCurrentWeather(city, temp, wind, humidity, uvi, code) {
         UVbox.css("background", "green");
     } else if (3 <= uvi < 8) {
         UVbox.css("background", "yellow");
+        UVbox.css("color", "black");
     } else {
         UVbox.css("background", "red");
+        UVbox.css("color", "black");
     }
     UVbox.css("color", "white");
     UVbox.addClass("p-1");

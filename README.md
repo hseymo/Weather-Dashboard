@@ -20,9 +20,8 @@ Please check out this project by clicking [here](https://hseymo.github.io/Weathe
 APPLICATION SCREENSHOTS: <br>
 Search results: <br>
 ![Screenshot](./assets/photos/Screenshot.png)
-
 <br>
-Error message if city is not valid: <br>
+Error Alert: <br>
 ![Screenshot](./assets/photos/error.png)
 
 <br>
